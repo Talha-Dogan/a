@@ -1,15 +1,32 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+// You can edit this code!
+// Click here and start typing.
+package main
 
-# Test binary, built with `go test -c`
-*.test
+import "fmt"
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+func main() {
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+	var adetler [7]int
+	adetler[0] = 10
+	adetler[1] = 4
+	adetler[2] = 7
+	adetler[3] = 6
+	adetler[4] = 5
+	adetler[5] = 4
+	adetler[6] = 3
+
+	for i := 0; i < len(adetler); i += 1 {
+		fmt.Println(adetler[i])
+
+	}
+
+	/*for i := 0; i < len(adetler); i++ {
+		fmt.Println(adetler[i])
+	}
+
+
+	for i := len(adetler) - 1; i > -1; i-- {
+		fmt.Println(adetler[i])
+	}*/
+
+}
