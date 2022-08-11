@@ -1,0 +1,72 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+	"strconv"
+)
+
+func main() {
+
+	var numara string = "ahmet"
+
+	var no int
+	var err error
+
+	no, err = strconv.Atoi(numara)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(no)
+
+	var sayi1 int = 30
+	var sayi2 int = 10
+
+	var sonucToplam int = 0
+	var sonucfark int = 0
+	var sonucBolum float32 = 0
+
+	sonucToplam, sonucfark, _, sonucBolum, err = tumIslemler(sayi1, sayi2)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(sonucBolum)
+	}
+	fmt.Println(sonucToplam)
+	fmt.Println(sonucfark)
+
+	var kitaplar [4]string = [4]string{"kitap 1", "kitap 2", "kitap 3", "kitap 4"}
+
+	kitapAdi, _ := kitapAdiGetir(kitaplar, 10)
+
+	fmt.Println(kitapAdi)
+}
+
+func kitapAdiGetir(kitaplar [4]string, kitapSirasi int) (string, error) {
+
+	var err error
+	var kitapAdi string
+
+	if kitapSirasi > -1 && kitapSirasi < len(kitaplar) {
+		kitapAdi = kitaplar[kitapSirasi]
+	} else {
+		err = errors.New("book can't find")
+	}
+	return kitapAdi, err
+
+}
+
+func tumIslemler(x int, y int) (toplam int, farklari int, carpim int, bolum float32, err error) {
+
+	toplam = x + y
+	farklari = x - y
+	carpim = x * y
+	if y == 0 {
+		err = errors.New("2. number cannot be equal to zero")
+	}
+	bolum = float32(x) / float32(y)
+
+	return toplam, farklari, carpim, bolum, err
+
+}
